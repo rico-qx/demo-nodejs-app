@@ -15,6 +15,13 @@ pipeline {
    
     stages {
 
+    stage('Install NodeJS') {
+        steps {
+            nodejs(nodeJSInstallationName: 'Node 12.x', configId: '') {
+                sh 'npm config ls'
+            }
+        }
+    }
     // Tests
     stage('Unit Tests') {
       steps{
