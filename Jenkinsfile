@@ -1,16 +1,16 @@
 pipeline {
     agent any
     environment {
-        AWS_ACCOUNT_ID="CHANGE_ME"
-        AWS_DEFAULT_REGION="CHANGE_ME" 
-	CLUSTER_NAME="CHANGE_ME"
-	SERVICE_NAME="CHANGE_ME"
-	TASK_DEFINITION_NAME="CHANGE_ME"
-	DESIRED_COUNT="CHANGE_ME"
+        AWS_ACCOUNT_ID="131683443865"
+        AWS_DEFAULT_REGION="ap-southeast-1" 
+        CLUSTER_NAME="default"
+        SERVICE_NAME="custom-service"
+        TASK_DEFINITION_NAME="CHANGE_ME"
+        DESIRED_COUNT="1"
         IMAGE_REPO_NAME="CHANGE_ME"
         IMAGE_TAG="${env.BUILD_ID}"
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
-	registryCredential = "CHANGE_ME"
+        registryCredential = "jenkins-docker"
     }
    
     stages {
